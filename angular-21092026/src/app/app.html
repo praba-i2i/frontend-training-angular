@@ -1,0 +1,49 @@
+<router-outlet></router-outlet>
+
+<header class="flex items-center justify-between bg-blue-600 px-8 py-4 text-white">
+  <h1 class="text-xl font-bold">
+    Post Management
+  </h1>
+  <nav class="flex gap-6">
+    <a routerLink="/add-post">
+      Add Post
+    </a>
+
+    <a routerLink="/posts">
+      List Posts
+    </a>
+  </nav>
+</header>
+
+@if (loading()) {
+
+  <div class="flex min-h-[70vh] items-center justify-center">
+    <p>Loading posts...</p>
+  </div>
+
+} @else {
+
+  <section class="container mx-auto grid grid-cols-1 gap-6 p-8 md:grid-cols-2 lg:grid-cols-3">
+
+    @for (post of posts; track post.id) {
+
+      <article class="rounded-lg border border-gray-200 p-5">
+
+        <p class="text-blue-600">
+          Author: {{ post.author }}
+        </p>
+
+        <h2 class="mt-2 text-xl font-bold">
+          {{ post.title }}
+        </h2>
+
+        <p class="mt-3 text-gray-600">
+          {{ post.body }}
+        </p>
+
+      </article>
+    }
+  </section>
+}
+
+
