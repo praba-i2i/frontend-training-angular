@@ -1,0 +1,15 @@
+@if (loading()) {
+
+  <p>Loading appointments...</p>
+
+} @else {
+    <h1 class="text-xl font-bold m-5">Guest</h1>
+
+    @for (appointment of appointments; track appointment.id) {
+      <div class="flex gap-5 m-5">
+        <h3>{{ appointment.display_name || appointment.name }}</h3>
+        <p>{{ appointment.start_time }}</p>
+      </div>
+    }
+
+}

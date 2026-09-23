@@ -1,0 +1,51 @@
+@if (loading()) {
+
+    <div class="flex min-h-screen items-center justify-center">
+        <p class="text-gray-500">
+        Loading posts...
+        </p>
+    </div>
+
+} @else {
+
+    <header class="flex items-center justify-between px-8 py-4">
+        <h2 class="text-3xl font-bold">Manage Posts</h2>
+        <button type="button" (click)="cancel()" class="rounded bg-gray-500 px-4 py-2 text-white">
+        back
+        </button>
+    </header>
+    <div class="container mx-auto p-8">
+
+        <section
+        class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+        @for (post of posts; track post.id) {
+
+            <div class="rounded-lg border border-gray-200 p-6">
+
+            <h3 class="text-xl font-semibold">
+                {{ post.title }}
+            </h3>
+
+            <p class="mt-5 text-gray-600">
+                {{ post.body }}
+            </p>
+
+            <p class="mt-5 text-sm font-medium text-[14px]">
+                Author: {{ post.author }}
+            </p>
+
+            <div class="flex gap-3 mt-5">
+                <button type="button" (click)="editPost(post.id)" class="rounded bg-green-500 px-4 py-2 text-white">
+                Edit
+                </button>
+
+                <button type="button" (click)="deletePost(post.id)" class="rounded bg-red-500 px-4 py-2 text-white">
+                Delete
+                </button>
+            </div>
+            </div>
+        }
+        </section>
+    </div>
+}
