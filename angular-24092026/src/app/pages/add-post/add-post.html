@@ -1,0 +1,43 @@
+<div class="mx-auto max-w-2xl p-8">
+
+  <h2 class="mb-4 text-3xl font-bold">Add Post</h2>
+
+  <form #postForm="ngForm" (ngSubmit)="addPost()" class="grid gap-5">
+    <div>
+      <label class="mb-2 block font-medium">User</label>
+      <select name="userId" [(ngModel)]="userId" required class="w-full rounded border border-gray-300 p-3">
+
+        @for (user of users(); track user.id) {
+          <option [ngValue]="user.id">
+            {{ user.username }}
+          </option>
+        }
+
+      </select>
+    </div>
+
+    <div>
+      <label class="mb-2 block font-medium"> Title </label>
+
+      <input type="text" name="title" [(ngModel)]="title" required class="w-full rounded border border-gray-300 p-3"
+        placeholder="Enter title">
+    </div>
+
+    <div>
+      <label class="mb-2 block font-medium"> Body </label>
+      <textarea name="body" [(ngModel)]="body" required rows="4" class="w-full rounded border border-gray-300 p-3"
+        placeholder="Enter body">
+      </textarea>
+    </div>
+
+    <div class="flex gap-3">
+      <button type="submit" [disabled]="postForm.invalid" class="rounded bg-blue-600 px-5 py-3 text-white disabled:bg-gray-400">
+        Add Post
+      </button>
+
+      <button type="button" (click)="cancel()" class="rounded bg-gray-500 px-5 py-3 text-white">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

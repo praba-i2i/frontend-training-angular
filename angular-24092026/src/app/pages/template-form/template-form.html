@@ -1,0 +1,215 @@
+<div class="min-h-screen bg-gray-100 px-4 py-8">
+  <div class="mx-auto max-w-4xl rounded-lg bg-white p-6">
+
+    <h2 class="mb-6 text-center text-2xl font-bold">
+      Student Registration Form
+    </h2>
+
+    <form #studentForm="ngForm" (ngSubmit)="submitForm()">
+      <table class="w-full border-collapse">
+        <tbody>
+
+          <tr>
+            <td class="w-1/3 px-4 py-4 font-medium text-gray-700">
+              <label for="rollno">Roll no. :</label>
+            </td>
+
+            <td class="px-4 py-4">
+              <input id="rollno" name="rollno" type="text" [(ngModel)]="student.rollno"
+              class="w-full rounded-md border border-gray-300 px-3 py-2"/>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="px-4 py-4 font-medium text-gray-700">
+              Student name :
+            </td>
+
+            <td class="px-4 py-4">
+              <div class="flex items-center gap-2">
+                <input id="fname" name="firstName" type="text" placeholder="First Name" [(ngModel)]="student.firstName"
+                  class="w-full rounded-md border border-gray-300 px-3 py-2"/>
+                <span>-</span>
+                <input id="lname" name="lastName" type="text" placeholder="Last Name" [(ngModel)]="student.lastName"
+                  class="w-full rounded-md border border-gray-300 px-3 py-2"/>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="px-4 py-4 font-medium text-gray-700">
+              <label for="fatherName">Father's name :</label>
+            </td>
+
+            <td class="px-4 py-4">
+              <input id="fatherName" name="fatherName" type="text" [(ngModel)]="student.fatherName"
+                class="w-full rounded-md border border-gray-300 px-3 py-2 "/>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="px-4 py-4 font-medium text-gray-700">
+              <label for="dob">Date of birth :</label>
+            </td>
+
+            <td class="px-4 py-4">
+              <input id="dob" name="dob" type="date" [(ngModel)]="student.dob"
+                class="rounded-md border border-gray-300 px-3 py-2 "/>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="px-4 py-4 font-medium text-gray-700">
+              Mobile no. :
+            </td>
+
+            <td class="px-4 py-4">
+              <div class="flex items-center gap-2">
+                <input name="countryCode" [(ngModel)]="student.countryCode" size="2"
+                  class="w-16 rounded-md border border-gray-300 px-3 py-2 "/>
+                <span>-</span>
+                <input id="mobileNo" name="mobileNo" type="number" [(ngModel)]="student.mobileNo"
+                  class="flex-1 rounded-md border border-gray-300 px-3 py-2 "/>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="px-4 py-4 font-medium text-gray-700">
+              <label for="email">Email id :</label>
+            </td>
+
+            <td class="px-4 py-4">
+              <input id="email" name="email" type="email" [(ngModel)]="student.email"
+                class="w-full rounded-md border border-gray-300 px-3 py-2 "/>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="px-4 py-4 font-medium text-gray-700">
+              <label for="password">Password :</label>
+            </td>
+
+            <td class="px-4 py-4">
+              <input id="password" name="password" type="password" [(ngModel)]="student.password"
+                class="w-full rounded-md border border-gray-300 px-3 py-2 "/>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="px-4 py-4 font-medium text-gray-700">
+              Gender :
+            </td>
+
+            <td class="px-4 py-4">
+              <div class="flex gap-6">
+
+                <label class="flex cursor-pointer items-center gap-2">
+                  <input id="mgender" name="gender" type="radio" value="Male" [(ngModel)]="student.gender"
+                    class="h-4 w-4"/>
+                  Male
+                </label>
+
+                <label class="flex cursor-pointer items-center gap-2">
+                  <input id="fgender" name="gender" type="radio" value="Female" [(ngModel)]="student.gender"
+                    class="h-4 w-4"/>
+                  Female
+                </label>
+
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="px-4 py-4 font-medium text-gray-700">
+              Department :
+            </td>
+
+            <td class="px-4 py-4">
+              <div class="flex flex-wrap gap-5">
+
+                <label class="flex cursor-pointer items-center gap-2">
+                  <input type="checkbox" name="cse" value="CSE" class="h-4 w-4"/>
+                  CSE
+                </label>
+
+                <label class="flex cursor-pointer items-center gap-2">
+                  <input type="checkbox" name="it" value="IT" class="h-4 w-4"/>
+                  IT
+                </label>
+
+                <label class="flex cursor-pointer items-center gap-2">
+                  <input type="checkbox" name="ece" value="ECE" class="h-4 w-4"/>
+                  ECE
+                </label>
+
+                <label class="flex cursor-pointer items-center gap-2">
+                  <input type="checkbox" name="eee" value="EEE" class="h-4 w-4"/>
+                  EEE
+                </label>
+
+                <label class="flex cursor-pointer items-center gap-2">
+                  <input type="checkbox" name="mech" value="MECH" class="h-4 w-4"/>
+                  Mech
+                </label>
+
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="px-4 py-4 font-medium text-gray-700">
+              <label for="course">Course :</label>
+            </td>
+
+            <td class="px-4 py-4">
+
+              <select id="course" name="course" [(ngModel)]="student.course"
+                class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 ">
+                <option value="">----- Select Current Course -----</option>
+                <option value="java">Java</option>
+                <option value="python">Python</option>
+                <option value="angular">Angular</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="px-4 py-4 font-medium text-gray-700">
+              <label for="city">City :</label>
+            </td>
+
+            <td class="px-4 py-4">
+              <input id="city" name="city" type="text" [(ngModel)]="student.city"
+                class="w-full rounded-md border border-gray-300 px-3 py-2 "/>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="px-4 py-4 font-medium text-gray-700">
+              <label for="address">Address :</label>
+            </td>
+
+            <td class="px-4 py-4">
+
+              <textarea id="address" name="address" rows="5" [(ngModel)]="student.address"
+                class="w-full resize-none rounded-md border border-gray-300 px-3 py-2 "></textarea>
+
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2" class="px-4 py-6 text-center">
+
+              <button type="submit" [disabled]="studentForm.invalid"
+                class="rounded-md bg-blue-600 px-8 py-3 font-semibold text-white shadow hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50">
+                Register
+              </button>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>
